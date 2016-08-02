@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>PIM VR for Vive</title>
+    <meta name="description" content="PIM VR for Vive">
+    <script src="../aframe.js"></script>
+    <script src="../components/aabb-collider.js"></script>
+    <script src="../components/grab.js"></script>
+    <script src="../components/aframe-triggerbox-component.js"></script>
+    <script src="../components/aframe-layout-component.min.js"></script>
+    <script src="../components/aframe-firebase-component.min.js"></script>
+  </head>
+  <body>
+    <a-scene firebase="apiKey: AIzaSyDjfs_cOxyZIydMnLPbwr6O47dIcImKkPA;
+                     authDomain: aframefirebasemultichannels.firebaseapp.com;
+                     databaseURL: https://aframefirebasemultichannels.firebaseio.com;
+                     storageBucket: aframefirebasemultichannels.appspot.com;
+                     channel: PIMVRViveTemplate;">
+      <a-assets>
+        <a-mixin id="cube"
+                 geometry="primitive: box; height: 0.30; width: 0.30; depth: 0.30"
+                 material="color: #EF2D5E;"></a-mixin>
+        <a-mixin id="cube-collided"
+                 material="color: #F2E646;"></a-mixin>
+        <a-mixin id="cube-grabbed"
+                 material="color: #F2E646;"></a-mixin>
+      </a-assets>
+      <!-- Hands -->
+      <a-entity hand-controls="left" aabb-collider="objects: .cube;" grab></a-entity>
+      <a-entity hand-controls="right" aabb-collider="objects: .cube;" grab></a-entity>
+
+        <!-- Environment -->
+        <a-sky color="lightblue"></a-sky>
+
+
+    <a-entity layout="type: circle; radius: 0.7">
+	<a-box firebase-broadcast="components: position" class="cube" scale="0.3 0.3 0.3" position="-0.3 0 0" src="../assets/fabien.benetou.fr_Analysis_CreativityFosteringBehaviors.png"></a-box>
+	<a-box firebase-broadcast="components: position" class="cube" scale="0.3 0.3 0.3" position="0 0 0" src="../assets/fabien.benetou.fr_Tools_VirtualReality.png"></a-box>
+	<a-box firebase-broadcast="components: position" class="cube" scale="0.3 0.3 0.3" position="0.3 0 0" src="../assets/fabien.benetou.fr_Cognition_Cognition.png"></a-box>
+	<a-box firebase-broadcast="components: position" class="cube" scale="0.3 0.3 0.3" position="0.6 0 0" src="../assets/fabien.benetou.fr_Wiki_3DVisualization.png"></a-box>
+	<a-box firebase-broadcast="components: position" class="cube" scale="0.3 0.3 0.3" position="0.6 0 0" src="../assets/fabien.benetou.fr_Wiki_Visualization.png"></a-box>
+	<a-box firebase-broadcast="components: position" class="cube" scale="0.3 0.3 0.3" position="0.6 0 0" src="../assets/fabien.benetou.fr_Wiki_Wiki.png"></a-box>
+      </a-entity>
+
+    </a-scene>
+  </body>
+  <script>
+/*
+TODO
+	link to kickstart compaign
+	use data structure to consume live, not fixed pages
+	use 360 photos taken by the user to personnalize more
+	use https://github.com/Utopiah/aframe-triggerbox-component to make drop zone (delete, hightlight, etc)
+	use https://github.com/ngokevin/aframe-firebase-component to make it social
+
+
+*/
+  </script>
+  <script src="../aframe-inspector.js"></script>
+
+</html>
